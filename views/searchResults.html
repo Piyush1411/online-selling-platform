@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+</head>
+<body>
+  <h1>Search Results</h1>
+  <div id="search-results">
+    <!-- Display search results dynamically using JavaScript -->
+  </div>
+
+  <script>
+    // JavaScript code to fetch search results from the server
+    fetch('/api/searchResults')
+      .then(response => response.json())
+      .then(results => {
+        const searchResultsDiv = document.getElementById('search-results');
+
+        results.forEach(result => {
+          const productDiv = document.createElement('div');
+          productDiv.innerHTML = `<h3>${result.name}</h3><p>Price: ${result.price}</p>`;
+          searchResultsDiv.appendChild(productDiv);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching search results:', error);
+      });
+  </script>
+</body>
+</html>
+
