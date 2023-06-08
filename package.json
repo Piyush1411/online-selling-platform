@@ -8,7 +8,7 @@
     "dev": "nodemon server"
   },
   "keywords": [],
-  "author": "Pratik Gupta",
+  "author": "Piyush Gupta",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
