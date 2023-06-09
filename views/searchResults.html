@@ -1,0 +1,23 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+const searchResults = [
+  { name: 'Product 1', price: 10.99 },
+  { name: 'Product 2', price: 19.99 },
+  { name: 'Product 3', price: 5.99 }
+];
+
+// Serve the searchResults.html file
+app.get('/searchResults', (req, res) => {
+  res.sendFile(__dirname + '/views/searchResults.html');
+});
+
+// Endpoint to retrieve search results as JSON
+app.get('/api/searchResults', (req, res) => {
+  res.json(searchResults);
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
